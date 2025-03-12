@@ -24,8 +24,9 @@ export default function Chat() {
         getChatMessages(params.id).then((data) => {
             if (Object.keys(data.chat).length === 0) {
                 setMessages([]);
+            } else {
+                setMessages(data.chat.history.messages);
             }
-            setMessages(data.chat.history.messages);
         });
     }, [params.id]);
 
